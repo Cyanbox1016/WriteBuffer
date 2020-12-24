@@ -1,0 +1,15 @@
+write buffer:
+
+input clk(cpu)
+input reset
+
+/ with cache /
+input [31:0] req_addr(ram)
+input [31:0] req_data
+output resp_stall
+output resp_valid
+
+/ with ram / 
+output [31:0] ram_req_addr
+output [31:0] ram_req_data
+input mem_valid
