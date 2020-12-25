@@ -13,3 +13,12 @@ output resp_valid
 output [31:0] ram_req_addr
 output [31:0] ram_req_data
 input mem_valid
+
+
+从cache写入buffer：buffer要告诉cache写入完成
+buffer要存写入数据的地址
+
+memory要给buffer信号，写回完成
+buffer队列的头指针和尾指针
+
+buffer要返回数据告诉cache数据是否还在buffer中未写回
