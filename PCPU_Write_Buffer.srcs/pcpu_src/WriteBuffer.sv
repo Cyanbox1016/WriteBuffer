@@ -33,13 +33,19 @@ module WriteBuffer # (parameter BUFFERSIZE = 16) (
 
     input read_check,               // check whether there is dirty data in buffer when cache does reading
     output dirty_in_buffer,
+
     
     /* newly added: tell cache  */
 
     /* contact with memory */
-    output [3:0][31:0] req_mem_addr,
-    output [3:0][31:0] req_mem_data,
-    output [3:0] req_mem_valid,
+    output [3:0][31:0] req_mem_addr_write,
+    output [3:0][31:0] req_mem_data_write,
+    output [3:0] req_mem_valid_write,
+    output req_mem_we,
+
+    output [3:0][31:0] req_mem_addr_read,
+    output [3:0] req_mem_valid_read,
+
     input mem_resp_valid
 );
 
@@ -55,7 +61,7 @@ logic [31:0] select_position;
 int queue_head;
 int queue_tail;
 
-/* 每行都有数据占着，但新数据还可能可以加进�? */
+
 wire buffer_is_fully_occupied;  
 assign buffer_is_fully_occupied = (queue_head == queue_tail + 1 || (queue_head == 0 && queue_tail == BUFFERSIZE - 1)) ? 1 : 0;
 
@@ -63,7 +69,7 @@ wire buffer_is_empty;
 assign buffer_is_empty = (queue_head == queue_tail) ? 1 : 0;
 
 int i;
-/* 给新数据找一个合适的放置位置 */
+
 always @ * begin
     if (rst == 1) select_position <= 32'b0;
     else begin
@@ -105,7 +111,7 @@ always @ (posedge clk or posedge rst) begin
         queue_head <= 32'b0;
         queue_tail <= 32'b0;
     end
-    else if (cache_req_valid) begin
+    else if (cache_req_valid && !read_check) begin
         if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
             valid[col_index][select_position] <= 1'b1;
             buffer[col_index][select_position] <= cache_req_data;
@@ -122,20 +128,32 @@ assign req_mem_data[3:0][31:0] = buffer[3:0][queue_head][31:0];
 assign req_mem_valid[3:0] = valid[3:0][queue_head];
 */
 
-assign req_mem_addr[0][31:0] = addr[0][queue_head][31:0];
-assign req_mem_addr[1][31:0] = addr[0][queue_head][31:0];
-assign req_mem_addr[2][31:0] = addr[0][queue_head][31:0];
-assign req_mem_addr[3][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr_write[0][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr_write[1][31:0] = addr[1][queue_head][31:0];
+assign req_mem_addr_write[2][31:0] = addr[2][queue_head][31:0];
+assign req_mem_addr_write[3][31:0] = addr[3][queue_head][31:0];
 
-assign req_mem_data[0][31:0] = buffer[0][queue_head][31:0];
-assign req_mem_data[1][31:0] = buffer[1][queue_head][31:0];
-assign req_mem_data[2][31:0] = buffer[2][queue_head][31:0];
-assign req_mem_data[3][31:0] = buffer[3][queue_head][31:0];
+assign req_mem_data_write[0][31:0] = buffer[0][queue_head][31:0];
+assign req_mem_data_write[1][31:0] = buffer[1][queue_head][31:0];
+assign req_mem_data_write[2][31:0] = buffer[2][queue_head][31:0];
+assign req_mem_data_write[3][31:0] = buffer[3][queue_head][31:0];
 
-assign req_mem_valid[0] = valid[0][queue_head];
-assign req_mem_valid[1] = valid[0][queue_head];
-assign req_mem_valid[2] = valid[0][queue_head];
-assign req_mem_valid[3] = valid[0][queue_head];
+assign req_mem_valid_write[0] = valid[0][queue_head];
+assign req_mem_valid_write[1] = valid[1][queue_head];
+assign req_mem_valid_write[2] = valid[2][queue_head];
+assign req_mem_valid_write[3] = valid[3][queue_head];
+
+assign req_mem_valid_read[0] = (read_check == 1 && col_index == 2'd0) ? 1 : 0;
+assign req_mem_valid_read[1] = (read_check == 1 && col_index == 2'd1) ? 1 : 0;
+assign req_mem_valid_read[2] = (read_check == 1 && col_index == 2'd2) ? 1 : 0;
+assign req_mem_valid_read[3] = (read_check == 1 && col_index == 2'd3) ? 1 : 0;
+
+assign req_mem_addr_read[0][31:0] = cache_req_addr;
+assign req_mem_addr_read[1][31:0] = cache_req_addr;
+assign req_mem_addr_read[2][31:0] = cache_req_addr;
+assign req_mem_addr_read[3][31:0] = cache_req_addr;
+
+assign req_mem_we = buffer_is_empty == 1 ? 0 : 1;
 
 /* write into memory */
 always @ (posedge mem_resp_valid) begin

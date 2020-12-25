@@ -1,6 +1,26 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2020/12/25 16:29:28
+// Design Name: 
+// Module Name: WriteBuffer
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
-module WriteBuffer # (parameter BUFFERSIZE = 16;) (
+
+module WriteBuffer # (parameter BUFFERSIZE = 16) (
     input clk,      // reverse cache clk
     input rst,
 
@@ -13,14 +33,19 @@ module WriteBuffer # (parameter BUFFERSIZE = 16;) (
 
     input read_check,               // check whether there is dirty data in buffer when cache does reading
     output dirty_in_buffer,
+
     
     /* newly added: tell cache  */
 
     /* contact with memory */
-    output [3:0][31:0] req_mem_addr,
-    output [3:0][31:0] req_mem_data,
-    output [3:0] req_mem_valid,
-    input mem_resp_valid;
+    output [3:0][31:0] req_mem_addr_write,
+    output [3:0][31:0] req_mem_data_write,
+    output [3:0] req_mem_valid_write,
+    output req_mem_we,
+
+    output [3:0][31:0] req_mem_addr_read,
+
+    input mem_resp_valid
 );
 
 logic [3:0][BUFFERSIZE - 1:0][31:0] buffer;
@@ -35,14 +60,15 @@ logic [31:0] select_position;
 int queue_head;
 int queue_tail;
 
-/* 每行都有数据占着，但新数据还可能可以加进去 */
+/* 姣忚閮芥湁鏁版嵁鍗犵潃锛屼絾鏂版暟鎹繕鍙兘鍙互鍔犺繘鍘? */
 wire buffer_is_fully_occupied;  
 assign buffer_is_fully_occupied = (queue_head == queue_tail + 1 || (queue_head == 0 && queue_tail == BUFFERSIZE - 1)) ? 1 : 0;
 
 wire buffer_is_empty;
 assign buffer_is_empty = (queue_head == queue_tail) ? 1 : 0;
 
-/* 给新数据找一个合适的放置位置 */
+int i;
+/* 缁欐柊鏁版嵁鎵句竴涓悎閫傜殑鏀剧疆浣嶇疆 */
 always @ * begin
     if (rst == 1) select_position <= 32'b0;
     else begin
@@ -84,10 +110,10 @@ always @ (posedge clk or posedge rst) begin
         queue_head <= 32'b0;
         queue_tail <= 32'b0;
     end
-    else if (cache_req_valid) begin
+    else if (cache_req_valid && !read_check) begin
         if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
             valid[col_index][select_position] <= 1'b1;
-            buffer[col_inedx][select_position] <= cache_req_data;
+            buffer[col_index][select_position] <= cache_req_data;
             if (!buffer_is_fully_occupied && select_position == queue_tail) queue_tail++;
         end
     end
@@ -95,17 +121,34 @@ end
 
 assign resp_cache_stall = (buffer_is_fully_occupied && select_position == queue_tail) ? 1 : 0;
 
+/*
 assign req_mem_addr[3:0][31:0] = addr[3:0][queue_head][31:0];
 assign req_mem_data[3:0][31:0] = buffer[3:0][queue_head][31:0];
 assign req_mem_valid[3:0] = valid[3:0][queue_head];
+*/
+
+assign req_mem_addr[0][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[1][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[2][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[3][31:0] = addr[0][queue_head][31:0];
+
+assign req_mem_data[0][31:0] = buffer[0][queue_head][31:0];
+assign req_mem_data[1][31:0] = buffer[1][queue_head][31:0];
+assign req_mem_data[2][31:0] = buffer[2][queue_head][31:0];
+assign req_mem_data[3][31:0] = buffer[3][queue_head][31:0];
+
+assign req_mem_valid[0] = valid[0][queue_head];
+assign req_mem_valid[1] = valid[0][queue_head];
+assign req_mem_valid[2] = valid[0][queue_head];
+assign req_mem_valid[3] = valid[0][queue_head];
 
 /* write into memory */
 always @ (posedge mem_resp_valid) begin
     if (!buffer_is_empty) begin
-        valid[0][queue_read] = 1'b0;
-        valid[1][queue_read] = 1'b0;
-        valid[2][queue_read] = 1'b0;
-        valid[3][queue_read] = 1'b0;
+        valid[0][queue_head] = 1'b0;
+        valid[1][queue_head] = 1'b0;
+        valid[2][queue_head] = 1'b0;
+        valid[3][queue_head] = 1'b0;
         queue_head = queue_head + 1;
     end
 end
@@ -127,5 +170,7 @@ always @ * begin
         end
     end
 end
+
+assign req_mem_we = buffer_is_empty == 1 ? 0 : 1;
 
 endmodule
