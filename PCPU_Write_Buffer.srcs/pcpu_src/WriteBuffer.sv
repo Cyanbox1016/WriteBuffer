@@ -98,7 +98,7 @@ always @ (posedge clk or posedge rst) begin
     end
 end
 
-assign resp_cache_stall = (buffer_is_fully_occupied && select_position == queue_tail) ? 1 : 0;
+
 
 /*
 assign req_mem_addr[3:0][31:0] = addr[3:0][queue_head][31:0];
@@ -161,5 +161,7 @@ always @ * begin
         end
     end
 end
+
+assign resp_cache_stall = (buffer_is_fully_occupied && select_position == queue_tail) || dirty_in_buffer_state == 1 ? 1 : 0;
 
 endmodule

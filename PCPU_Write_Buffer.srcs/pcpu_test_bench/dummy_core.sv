@@ -93,7 +93,7 @@ module dummy_core(
         .rst(rst),
         .cache_write(d_cache_write),
         .cache_read(d_cache_read),
-        .write_back(d_cache_write_back), // interact with memory
+        .write_back(resp_cache_stall), // interact with memory
         .read_allocate(d_cache_read_allocate), // interact with memory
         .address(Addr_Out[12:2]),
         .data_in(Data_Out),
