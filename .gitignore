@@ -4,7 +4,8 @@
 /PCPU_Write_Buffer.hw/
 /PCPU_Write_Buffer.ip_user_files/
 /PCPU_Write_Buffer.runs/
-/PCPU_Write_Buffer.sim/
+/PCPU_Write_Buffer.sim/*
+!/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
 /PCPU_Write_Buffer.srcs/ip/Ram/*
 /PCPU_Write_Buffer.srcs/ip/Rom/*
 /PCPU_Write_Buffer.srcs/ip/dual_port_ram/*

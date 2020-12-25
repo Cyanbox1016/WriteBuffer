@@ -40,7 +40,7 @@ module Mem_Extend(
 
         .clkb(mem_clk),
         .addrb(read_address[12:2]),
-        .doutb(ram_data_out[0]),
+        .doutb(ram_data_out[0])
     );
 
     dual_port_ram ram_unit_1 (
@@ -51,7 +51,7 @@ module Mem_Extend(
 
         .clkb(mem_clk),
         .addrb(read_address[12:2]),
-        .doutb(ram_data_out[1]),
+        .doutb(ram_data_out[1])
     );
 
     dual_port_ram ram_unit_2 (
@@ -62,7 +62,7 @@ module Mem_Extend(
 
         .clkb(mem_clk),
         .addrb(read_address[12:2]),
-        .doutb(ram_data_out[2]),
+        .doutb(ram_data_out[2])
     );
 
     dual_port_ram ram_unit_3 (
@@ -73,7 +73,7 @@ module Mem_Extend(
 
         .clkb(mem_clk),
         .addrb(read_address[12:2]),
-        .doutb(ram_data_out[3]),
+        .doutb(ram_data_out[3])
     );
     
     // Ram ram_unit_0 (
