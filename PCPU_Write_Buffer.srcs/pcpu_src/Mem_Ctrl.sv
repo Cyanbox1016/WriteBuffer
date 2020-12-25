@@ -38,28 +38,48 @@ module Mem_Ctrl(
             if(!mem_ready) mem_state <= MEM_WORK;
             else mem_state <= MEM_IDLE;
         end
+        else begin
+            mem_state <= MEM_IDLE;
+        end
     end
 
     always_ff @(posedge mem_clk or posedge rst) begin
         if(rst) begin
-            cnt <= 1'b0;
+            mem_ready = 1'b0;
         end
         else begin
-            if(mem_write || mem_read) begin
-                if(cnt == 1'b1) begin
-                    mem_ready <= 1'b1;
-                end
-                else begin
-                    mem_ready <= 1'b0;
-                end
-                cnt <= cnt + 1;
+            if(mem_state == MEM_IDLE) begin
+                mem_ready = 1'b0;
+            end
+            else if(mem_write || mem_read) begin
+                mem_ready = 1'b1;
             end
             else begin
                 mem_ready = 1'b0;
-                cnt <= 1'b0;
             end
         end
     end
+
+    // always_ff @(posedge mem_clk or posedge rst) begin
+    //     if(rst) begin
+    //         cnt <= 1'b0;
+    //     end
+    //     else begin
+    //         if(mem_write || mem_read) begin
+    //             if(cnt == 1'b1) begin
+    //                 mem_ready <= 1'b1;
+    //             end
+    //             else begin
+    //                 mem_ready <= 1'b0;
+    //             end
+    //             cnt <= cnt + 1;
+    //         end
+    //         else begin
+    //             mem_ready = 1'b0;
+    //             cnt <= 1'b0;
+    //         end
+    //     end
+    // end
 
     assign write_back = !(mem_ready && mem_state == MEM_WORK);
     assign read_allocate = !(mem_ready && mem_state == MEM_WORK);

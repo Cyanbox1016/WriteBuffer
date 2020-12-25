@@ -62,7 +62,12 @@ module dummy_core(
         .MemRead(MemRead),
         .Debug_Data(Debug_Reg_Data) // add for debug
     );
-    
+
+// `define I_CACHE_USE
+`ifndef I_CACHE_USE
+    assign i_cache_stall = 1'b0;
+`endif
+
     always_ff @(posedge clk) begin
         if(rst) clk_div <= 0;
         else clk_div <= clk_div + 1;
@@ -117,6 +122,28 @@ module dummy_core(
         .read_allocate(d_cache_read_allocate)
     );
 
+    logic [31:0]cache_req_addr, cache_req_data;
+    logic cache_req_valid, mem_resp_valid;
+    logic resp_cache_valid, resp_cache_stall, read_check, dirty_in_buffer;
+    logic [3:0][31:0]req_mem_addr, req_mem_data;
+    logic [3:0]req_mem_valid;
+    WriteBuffer #(.BUFFERSIZE(16)) write_buffer (
+        .clk(cpu_clk),      // reverse cache clk
+        .rst(rst),
+        .cache_req_addr(cache_req_addr),
+        .cache_req_data(cache_req_data),
+        .cache_req_valid(cache_req_valid),
+        .resp_cache_valid(resp_cache_valid),        // finish writing to buffer
+        .resp_cache_stall(resp_cache_stall),        // buffer is full now, signal cache to stall
+        .read_check(read_check),               // check whether there is dirty data in buffer when cache does reading
+        .dirty_in_buffer(dirty_in_buffer),
+        .req_mem_addr(req_mem_addr),
+        .req_mem_data(req_mem_data),
+        .req_mem_valid(req_mem_valid),
+        .mem_resp_valid(mem_resp_valid)
+    );
+
+`ifdef I_CACHE_USE
     logic i_cache_read_allocate, rom_read;
     logic [31:0]rom_data_out;
     logic [10:0]rom_address;
@@ -153,57 +180,24 @@ module dummy_core(
         .write_back(),
         .read_allocate(i_cache_read_allocate)
     );
+`endif
 
 
+`ifndef I_CACHE_USE
+    Rom rom_unit (
+        .clka(~cpu_clk),
+        .addra(PC_Out[12:2]),
+        .douta(Inst)
+    );
+`endif
 
-    // logic mem_state, mem_ready;
-    
-    // localparam MEM_IDLE = 1'b0, MEM_WORK = 1'b1;
-    // always_ff @(negedge cpu_clk) begin
-    //     if(rst) mem_state <= MEM_IDLE;
-    //     if(mem_write || mem_read) begin
-    //         if(!mem_ready) mem_state <= MEM_WORK;
-    //         else mem_state <= MEM_IDLE;
-    //     end
-    // end
-
-    // logic cnt;
-    // always_ff @(posedge mem_clk or posedge rst) begin
-    //     if(rst) begin
-    //         cnt <= 1'b0;
-    //     end
-    //     else begin
-    //         if(mem_write || mem_read) begin
-    //             if(cnt == 1'b1) begin
-    //                 mem_ready <= 1'b1;
-    //             end
-    //             else begin
-    //                 mem_ready <= 1'b0;
-    //             end
-    //             cnt <= cnt + 1;
-    //         end
-    //         else begin
-    //             // mem_ready = 1'b1;
-    //             mem_ready = 1'b0;
-    //             cnt <= 1'b0;
-    //         end
-    //     end
-    // end
-
-    // assign write_back = !(mem_ready && mem_state == MEM_WORK);
-    // assign read_allocate = !(mem_ready && mem_state == MEM_WORK);
-
-    // Rom rom_unit (
-    //     .clka(~cpu_clk),
-    //     .addra(PC_Out[12:2]),
-    //     .douta(Inst)
-    // );
-
+`ifdef I_CACHE_USE
     Rom rom_unit (
         .clka(mem_clk),
         .addra(rom_address),
         .douta(rom_data_out)
     );
+`endif
     
     Ram ram_unit (
        .clka(mem_clk),
