@@ -1,0 +1,13 @@
+/.Xil/
+/PCPU_Write_Buffer.cache/
+/PCPU_Write_Buffer.hbs/
+/PCPU_Write_Buffer.hw/
+/PCPU_Write_Buffer.ip_user_files/
+/PCPU_Write_Buffer.runs/
+/PCPU_Write_Buffer.sim/
+/PCPU_Write_Buffer.srcs/ip/Ram/*
+/PCPU_Write_Buffer.srcs/ip/Rom/*
+/PCPU_Write_Buffer.srcs/ip/dual_port_ram/*
+!/PCPU_Write_Buffer.srcs/ip/Ram/Ram.xci
+!/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci
+!/PCPU_Write_Buffer.srcs/ip/dual_port_ram/dual_port_ram.xci
