@@ -116,17 +116,34 @@ end
 
 assign resp_cache_stall = (buffer_is_fully_occupied && select_position == queue_tail) ? 1 : 0;
 
+/*
 assign req_mem_addr[3:0][31:0] = addr[3:0][queue_head][31:0];
 assign req_mem_data[3:0][31:0] = buffer[3:0][queue_head][31:0];
 assign req_mem_valid[3:0] = valid[3:0][queue_head];
+*/
+
+assign req_mem_addr[0][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[1][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[2][31:0] = addr[0][queue_head][31:0];
+assign req_mem_addr[3][31:0] = addr[0][queue_head][31:0];
+
+assign req_mem_data[0][31:0] = buffer[0][queue_head][31:0];
+assign req_mem_data[1][31:0] = buffer[1][queue_head][31:0];
+assign req_mem_data[2][31:0] = buffer[2][queue_head][31:0];
+assign req_mem_data[3][31:0] = buffer[3][queue_head][31:0];
+
+assign req_mem_valid[0] = valid[0][queue_head];
+assign req_mem_valid[1] = valid[0][queue_head];
+assign req_mem_valid[2] = valid[0][queue_head];
+assign req_mem_valid[3] = valid[0][queue_head];
 
 /* write into memory */
 always @ (posedge mem_resp_valid) begin
     if (!buffer_is_empty) begin
-        valid[0][queue_read] = 1'b0;
-        valid[1][queue_read] = 1'b0;
-        valid[2][queue_read] = 1'b0;
-        valid[3][queue_read] = 1'b0;
+        valid[0][queue_head] = 1'b0;
+        valid[1][queue_head] = 1'b0;
+        valid[2][queue_head] = 1'b0;
+        valid[3][queue_head] = 1'b0;
         queue_head = queue_head + 1;
     end
 end
