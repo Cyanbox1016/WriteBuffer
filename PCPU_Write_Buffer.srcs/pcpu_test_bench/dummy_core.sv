@@ -161,7 +161,7 @@ module dummy_core(
     logic [3:0]read_address_valid;
     logic [3:0]ram_extend_we;
     // read and write address translation
-    assign ram_extend_read_address = {23'b0, ram_address[10:2]};
+    assign ram_extend_read_address = {21'b0, ram_address[10:0]};  // changed here
     always_comb begin
         if(ram_read) begin
             case (ram_address[1:0])

@@ -51,7 +51,7 @@ int i;
 always @ * begin
     if (rst == 1) select_position <= 32'b0;
     else begin
-        for (i = queue_head; i != queue_tail; i = (i + 1) % BUFFERSIZE) begin
+        for (i = 0; i < BUFFERSIZE; i++) begin
             if (col_index != 0 && addr[0][i][31:2] == cache_req_addr[31:2] && valid[0][i]) begin
                 select_position <= i;
                 break;
