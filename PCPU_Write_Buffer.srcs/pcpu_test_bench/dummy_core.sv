@@ -36,7 +36,9 @@ module dummy_core(
     output logic [31:0] chip_debug_out0,
     output logic [31:0] chip_debug_out1,
     output logic [31:0] chip_debug_out2,
-    output logic [31:0] chip_debug_out3
+    output logic [31:0] chip_debug_out3,
+    
+    output [31:0] ram_data
 );
 
     logic rst, MemWrite, MemRead, mem_clk, cpu_clk;
@@ -147,7 +149,7 @@ module dummy_core(
         .req_mem_data_write(req_mem_data),
         .req_mem_valid_write(req_mem_valid),
         .req_mem_we(req_mem_we),
-        .mem_resp_valid(mem_resp_valid),
+        .mem_resp_valid(mem_clk),
         .req_mem_addr_read(),
         .req_mem_valid_read()
     );

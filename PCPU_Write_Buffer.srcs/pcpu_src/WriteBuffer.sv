@@ -93,6 +93,7 @@ always @ (posedge clk or posedge rst) begin
         if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
             valid[col_index][select_position] <= 1'b1;
             buffer[col_index][select_position] <= cache_req_data;
+            addr[col_index][select_position] <= cache_req_addr;
             if (!buffer_is_fully_occupied && select_position == queue_tail) queue_tail++;
         end
     end
