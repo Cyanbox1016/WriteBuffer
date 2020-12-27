@@ -63,6 +63,7 @@ module Mem_Ctrl(
     always_ff @(posedge mem_clk or posedge rst) begin
         if(rst) begin
             cnt <= 1'b0;
+            mem_ready <= 1'b0;
         end
         else begin
             if(mem_write || mem_read) begin

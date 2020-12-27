@@ -102,19 +102,23 @@ always @ (posedge clk or posedge rst) begin
         end
         queue_tail <= 32'b0;
     end
-    else if (cache_req_valid && !read_check) begin
-        if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
-            valid[col_index][select_position] <= 1'b1;
-            buffer[col_index][select_position] <= cache_req_data;
-            addr[col_index][select_position] <= cache_req_addr;
-            if (!buffer_is_fully_occupied && select_position == queue_tail) queue_tail++;
+    else begin
+        if (cache_req_valid && !read_check) begin
+            if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
+                valid[col_index][select_position] <= 1'b1;
+                buffer[col_index][select_position] <= cache_req_data;
+                addr[col_index][select_position] <= cache_req_addr;
+                if (!buffer_is_fully_occupied && select_position == queue_tail) begin 
+                    queue_tail <= (queue_tail + 1) % BUFFERSIZE;
+                end
+            end
         end
-    end
-    else if (!buffer_is_empty && posedge_dequeue_ready) begin
-        valid[0][queue_head] = 1'b0;
-        valid[1][queue_head] = 1'b0;
-        valid[2][queue_head] = 1'b0;
-        valid[3][queue_head] = 1'b0;
+        if (!buffer_is_empty && posedge_dequeue_ready) begin
+            valid[0][queue_head] = 1'b0;
+            valid[1][queue_head] = 1'b0;
+            valid[2][queue_head] = 1'b0;
+            valid[3][queue_head] = 1'b0;
+        end
     end
 end
 
@@ -160,7 +164,7 @@ always @ (posedge mem_resp_valid or posedge rst) begin // mem_clk
         queue_head <= 32'b0;
     end
     else if (!buffer_is_empty) begin
-        queue_head <= queue_head + 1;
+        queue_head <= (queue_head + 1) % BUFFERSIZE;
     end
 end
 
