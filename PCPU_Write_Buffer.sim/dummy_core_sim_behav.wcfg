@@ -12,12 +12,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="17840000fs"></ZoomStartTime>
-      <ZoomEndTime time="39380001fs"></ZoomEndTime>
-      <Cursor1Time time="25840000fs"></Cursor1Time>
+      <ZoomStartTime time="107973333fs"></ZoomStartTime>
+      <ZoomEndTime time="162173334fs"></ZoomEndTime>
+      <Cursor1Time time="153140000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="220"></NameColumnWidth>
+      <NameColumnWidth column_width="213"></NameColumnWidth>
       <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="19" />
@@ -41,7 +41,7 @@
       <obj_property name="ElementShortName">Debug_Reg_Data[31:0]</obj_property>
       <obj_property name="ObjectShortName">Debug_Reg_Data[31:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/uut/cpu/d_cache_stall" type="logic">
       <obj_property name="ElementShortName">d_cache_stall</obj_property>
@@ -59,9 +59,9 @@
       <obj_property name="ElementShortName">Inst[31:0]</obj_property>
       <obj_property name="ObjectShortName">Inst[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/mem_ready" type="array">
-      <obj_property name="ElementShortName">mem_ready[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_ready[3:0]</obj_property>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/mem_ready" type="logic">
+      <obj_property name="ElementShortName">mem_ready</obj_property>
+      <obj_property name="ObjectShortName">mem_ready</obj_property>
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/uut/mem_clk" type="logic">
       <obj_property name="ElementShortName">mem_clk</obj_property>

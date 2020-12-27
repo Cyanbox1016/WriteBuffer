@@ -75,8 +75,8 @@ module dummy_core(
         else clk_div <= clk_div + 1;
     end
     
-    assign mem_clk = clk_div[5]; // latency memory clock - 1/32
-    assign cpu_clk = debug_mode ? clk_div[1] : step;
+    assign mem_clk = clk_div[4]; // latency memory clock - 1/32
+    assign cpu_clk = debug_mode ? clk_div[0] : step;
 
     logic d_cache_write_back, d_cache_read_allocate, ram_read, ram_write;
     logic d_cache_write, d_cache_read;
@@ -96,8 +96,8 @@ module dummy_core(
         .rst(rst),
         .cache_write(d_cache_write),
         .cache_read(d_cache_read),
-        // .write_back(resp_cache_stall),
-        .write_back(d_cache_write_back), // interact with memory
+        .write_back(resp_cache_stall),
+        // .write_back(d_cache_write_back), // interact with memory
         .read_allocate(d_cache_read_allocate), // interact with memory
         .address(Addr_Out[12:2]),
         .data_in(Data_Out),

@@ -1,0 +1,980 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sun Dec 27 14:49:28 2020
+# Process ID: 16008
+# Current directory: E:/vivado/Project/PCPU_Write_Buffer
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24688 E:\vivado\Project\PCPU_Write_Buffer\PCPU_Write_Buffer.xpr
+# Log file: E:/vivado/Project/PCPU_Write_Buffer/vivado.log
+# Journal file: E:/vivado/Project/PCPU_Write_Buffer\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sources_1'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivado/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 1028.227 ; gain = 0.000
+update_compile_order -fileset sources_1
+reset_run impl_1 -prev_step 
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Couldn't access process for termination
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/dual_port_ram/dual_port_ram.xci' is already up-to-date
+[Sun Dec 27 14:55:38 2020] Launched impl_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.1
+  **** Build date : May 27 2020 at 20:24:38
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2020.1.0
+  **** Build date : May 14 2020-09:10:29
+    ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 1135.668 ; gain = 18.949
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD2F37A
+open_hw_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2421.496 ; gain = 1285.828
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/dual_port_ram/dual_port_ram.xci' is already up-to-date
+[Sun Dec 27 15:02:53 2020] Launched synth_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/synth_1/runme.log
+[Sun Dec 27 15:02:53 2020] Launched impl_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.1
+  **** Build date : May 27 2020 at 20:24:38
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2020.1.0
+  **** Build date : May 14 2020-09:10:29
+    ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 2483.000 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD2F37A
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Cache.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cache
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/EX_MEM_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Forward_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Hazard_Detect_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_Detect_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ID_EX_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/IF_ID_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MEM_WB_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Extend.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCPU
+INFO: [VRFC 10-2458] undeclared symbol Temp_Valid, assumed default net type wire [E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv:314]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/WriteBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WriteBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_test_bench/dummy_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sim/dummy_core_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core_sim
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 2497.383 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '10' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:18 . Memory (MB): peak = 2497.781 ; gain = 0.648
+run 200 us
+blk_mem_gen_v8_4_4 collision detected at time: 97540000, Instance: dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst , A write address: 1, B  read address: 1
+blk_mem_gen_v8_4_4 collision detected at time: 107780000, Instance: dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst , A write address: 1, B  read address: 1
+run 200 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_hw_manager
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Cache.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cache
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/EX_MEM_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Forward_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Hazard_Detect_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_Detect_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ID_EX_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/IF_ID_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MEM_WB_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Extend.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCPU
+INFO: [VRFC 10-2458] undeclared symbol Temp_Valid, assumed default net type wire [E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv:314]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/WriteBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WriteBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_test_bench/dummy_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sim/dummy_core_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core_sim
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 2497.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 2497.781 ; gain = 0.000
+run 200 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/dual_port_ram/dual_port_ram.xci' is already up-to-date
+[Sun Dec 27 15:14:04 2020] Launched synth_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/synth_1/runme.log
+[Sun Dec 27 15:14:05 2020] Launched impl_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.1
+  **** Build date : May 27 2020 at 20:24:38
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2020.1.0
+  **** Build date : May 14 2020-09:10:29
+    ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 2497.781 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD2F37A
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/impl_1/arch_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe' provided. It will be converted relative to IP Instance files '../../../../PCPU_Write_Buffer.srcs/coe/write_buffer.coe'
+set_property -dict [list CONFIG.Coe_File {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe}] [get_ips Rom]
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe' provided. It will be converted relative to IP Instance files '../../coe/write_buffer.coe'
+generate_target all [get_files  E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'Rom'...
+catch { config_ip_cache -export [get_ips -all Rom] }
+export_ip_user_files -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -no_script -sync -force -quiet
+reset_run Rom_synth_1
+launch_runs Rom_synth_1 -jobs 8
+[Sun Dec 27 15:30:29 2020] Launched Rom_synth_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/Rom_synth_1/runme.log
+export_simulation -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -directory E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/sim_scripts -ip_user_files_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files -ipstatic_source_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/modelsim} {questa=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/questa} {riviera=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/riviera} {activehdl=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/write_buffer.coe'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/sim/Rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/dual_port_ram/sim/dual_port_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dual_port_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Control_RV32I.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_RV32I
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Imm_Generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imm_Generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MUX2T1_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUX2T1_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MUX4T1_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUX4T1_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/REG32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module REG32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Regs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Regs
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/add32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module add32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Cache.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cache
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/EX_MEM_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Forward_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Hazard_Detect_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_Detect_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ID_EX_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/IF_ID_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MEM_WB_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Extend.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCPU
+INFO: [VRFC 10-2458] undeclared symbol Temp_Valid, assumed default net type wire [E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv:314]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/WriteBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WriteBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_test_bench/dummy_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sim/dummy_core_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core_sim
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 2497.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:17 . Memory (MB): peak = 2497.781 ; gain = 0.000
+run 200 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/write_buffer.coe'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Cache.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cache
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/EX_MEM_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Forward_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Hazard_Detect_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_Detect_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ID_EX_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/IF_ID_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MEM_WB_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Extend.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCPU
+INFO: [VRFC 10-2458] undeclared symbol Temp_Valid, assumed default net type wire [E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv:314]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/WriteBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WriteBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_test_bench/dummy_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sim/dummy_core_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core_sim
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 2497.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 2497.781 ; gain = 0.000
+run 200 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/write_buffer.coe'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Cache.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cache
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/EX_MEM_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Forward_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forward_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Hazard_Detect_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_Detect_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ID_EX_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/IF_ID_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MEM_WB_Reg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Mem_Extend.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mem_Extend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCPU
+INFO: [VRFC 10-2458] undeclared symbol Temp_Valid, assumed default net type wire [E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/PCPU.sv:314]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/WriteBuffer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WriteBuffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_test_bench/dummy_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/sim/dummy_core_sim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dummy_core_sim
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 2497.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:15 . Memory (MB): peak = 2497.781 ; gain = 0.000
+run 200 us
+save_wave_config {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe' provided. It will be converted relative to IP Instance files '../../../../PCPU_Write_Buffer.srcs/coe/write_buffer.coe'
+set_property -dict [list CONFIG.Coe_File {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe}] [get_ips Rom]
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe' provided. It will be converted relative to IP Instance files '../../coe/write_buffer.coe'
+generate_target all [get_files  E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'Rom'...
+catch { config_ip_cache -export [get_ips -all Rom] }
+export_ip_user_files -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -no_script -sync -force -quiet
+reset_run Rom_synth_1
+launch_runs Rom_synth_1 -jobs 8
+[Sun Dec 27 15:57:41 2020] Launched Rom_synth_1...
+Run output will be captured here: E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.runs/Rom_synth_1/runme.log
+export_simulation -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -directory E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/sim_scripts -ip_user_files_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files -ipstatic_source_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/modelsim} {questa=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/questa} {riviera=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/riviera} {activehdl=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'E:/vivado/Vivado/2020.1/data/xsim/xsim.ini' copied to run dir:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'dummy_core_sim' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Rom.mif'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/write_buffer.coe'
+INFO: [SIM-utils-43] Exported 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim/Lab4_RISCV.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj dummy_core_sim_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/sim/Rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/dual_port_ram/sim/dual_port_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dual_port_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Control_RV32I.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_RV32I
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Imm_Generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imm_Generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MUX2T1_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUX2T1_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/MUX4T1_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUX4T1_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/REG32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module REG32
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/Regs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Regs
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/pcpu_src/add32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module add32
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+"xelab -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: E:/vivado/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto f498384b75e2410cac3694889b9e127d --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dummy_core_sim_behav xil_defaultlib.dummy_core_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_Cache_sv
+Compiling module xil_defaultlib.add32
+Compiling module xil_defaultlib.MUX4T1_32
+Compiling module xil_defaultlib.REG32
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Hazard_Detect_Unit
+Compiling module xil_defaultlib.Regs
+Compiling module xil_defaultlib.Imm_Generator
+Compiling module xil_defaultlib.Control_RV32I
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.Forward_Unit
+Compiling module xil_defaultlib.MUX2T1_32
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.PCPU
+Compiling module xil_defaultlib.Cache
+Compiling module xil_defaultlib.Mem_Ctrl
+Compiling module xil_defaultlib.WriteBuffer
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.dual_port_ram
+Compiling module xil_defaultlib.Mem_Extend
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Rom
+Compiling module xil_defaultlib.dummy_core
+Compiling module xil_defaultlib.dummy_core_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dummy_core_sim_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 2497.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '10' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dummy_core_sim_behav -key {Behavioral:sim_1:Functional:dummy_core_sim} -tclbatch {dummy_core_sim.tcl} -view {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+open_wave_config E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.sim/dummy_core_sim_behav.wcfg
+source dummy_core_sim.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_0.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_1.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_2.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module dummy_core_sim.uut.ram_extend.ram_unit_3.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module dummy_core_sim.uut.rom_unit.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dummy_core_sim_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 2497.781 ; gain = 0.000
+run 200 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/write_buffer.coe' provided. It will be converted relative to IP Instance files '../../../../PCPU_Write_Buffer.srcs/coe/write_buffer.coe'
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/Lab4_RISCV.coe' provided. It will be converted relative to IP Instance files '../../../../PCPU_Write_Buffer.srcs/coe/Lab4_RISCV.coe'
+set_property -dict [list CONFIG.Coe_File {E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/Lab4_RISCV.coe}] [get_ips Rom]
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/coe/Lab4_RISCV.coe' provided. It will be converted relative to IP Instance files '../../coe/Lab4_RISCV.coe'
+generate_target all [get_files  E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'Rom'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'Rom'...
+catch { config_ip_cache -export [get_ips -all Rom] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Rom, cache-ID = cad196de62bd8d49; cache size = 1.069 MB.
+catch { [ delete_ip_run [get_ips -all Rom] ] }
+INFO: [Project 1-386] Moving file 'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci' from fileset 'Rom' to fileset 'sources_1'.
+export_ip_user_files -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci'
+export_simulation -of_objects [get_files E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.srcs/ip/Rom/Rom.xci] -directory E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/sim_scripts -ip_user_files_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files -ipstatic_source_dir E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/modelsim} {questa=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/questa} {riviera=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/riviera} {activehdl=E:/vivado/Project/PCPU_Write_Buffer/PCPU_Write_Buffer.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
