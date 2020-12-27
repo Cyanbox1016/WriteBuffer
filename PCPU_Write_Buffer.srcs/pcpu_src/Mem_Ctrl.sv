@@ -43,44 +43,59 @@ module Mem_Ctrl(
         end
     end
 
-    always_ff @(posedge mem_clk or posedge rst) begin
-        if(rst) begin
-            mem_ready = 1'b0;
-        end
-        else begin
-            if(mem_state == MEM_IDLE) begin
-                mem_ready = 1'b0;
-            end
-            else if(mem_write || mem_read) begin
-                mem_ready = 1'b1;
-            end
-            else begin
-                mem_ready = 1'b0;
-            end
-        end
-    end
-
     // always_ff @(posedge mem_clk or posedge rst) begin
     //     if(rst) begin
-    //         cnt <= 1'b0;
+    //         mem_ready = 1'b0;
     //     end
     //     else begin
-    //         if(mem_write || mem_read) begin
-    //             if(cnt == 1'b1) begin
-    //                 mem_ready <= 1'b1;
-    //             end
-    //             else begin
-    //                 mem_ready <= 1'b0;
-    //             end
-    //             cnt <= cnt + 1;
+    //         if(mem_state == MEM_IDLE) begin
+    //             mem_ready = 1'b0;
+    //         end
+    //         else if(mem_write || mem_read) begin
+    //             mem_ready = 1'b1;
     //         end
     //         else begin
     //             mem_ready = 1'b0;
-    //             cnt <= 1'b0;
     //         end
     //     end
     // end
 
+    always_ff @(posedge mem_clk or posedge rst) begin
+        if(rst) begin
+            cnt <= 1'b0;
+        end
+        else begin
+            if(mem_write || mem_read) begin
+                if(cnt == 1'b1) begin
+                    mem_ready <= 1'b1;
+                end
+                else begin
+                    mem_ready <= 1'b0;
+                end
+                cnt <= cnt + 1;
+            end
+            else begin
+                mem_ready = 1'b0;
+                cnt <= 1'b0;
+            end
+        end
+    end
+
     assign write_back = !(mem_ready && mem_state == MEM_WORK);
     assign read_allocate = !(mem_ready && mem_state == MEM_WORK);
+
+    // logic [3:0]mem_ready;
+    // always_ff @(posedge cpu_clk or posedge rst) begin
+    //     if(rst) begin
+    //         mem_ready <= 3'b0;
+    //     end
+    //     else begin
+    //         mem_ready <= {mem_ready[1:0], mem_clk};
+    //     end
+    // end
+    
+    // logic posedge_mem_ready;
+    // assign posedge_mem_ready = mem_ready[2] & ~mem_ready[1];
+    // assign write_back = ~posedge_mem_ready;
+    // assign read_allocate = ~posedge_mem_ready;
 endmodule

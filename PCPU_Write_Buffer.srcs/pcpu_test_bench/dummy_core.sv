@@ -36,7 +36,9 @@ module dummy_core(
     output logic [31:0] chip_debug_out0,
     output logic [31:0] chip_debug_out1,
     output logic [31:0] chip_debug_out2,
-    output logic [31:0] chip_debug_out3
+    output logic [31:0] chip_debug_out3,
+    
+    output [31:0] ram_data
 );
 
     logic rst, MemWrite, MemRead, mem_clk, cpu_clk;
@@ -73,8 +75,8 @@ module dummy_core(
         else clk_div <= clk_div + 1;
     end
     
-    assign mem_clk = clk_div[4]; // latency memory clock - 1/32
-    assign cpu_clk = debug_mode ? clk_div[0] : step;
+    assign mem_clk = clk_div[5]; // latency memory clock - 1/32
+    assign cpu_clk = debug_mode ? clk_div[1] : step;
 
     logic d_cache_write_back, d_cache_read_allocate, ram_read, ram_write;
     logic d_cache_write, d_cache_read;
@@ -85,15 +87,17 @@ module dummy_core(
     logic debug_d_cache_valid;
     logic [3:0]debug_d_cache_tag;
     logic [31:0]debug_d_cache_data;
+    logic resp_cache_stall;
     assign d_cache_write = MemWrite;
     assign d_cache_read = MemRead;
-
+    
     Cache d_cache(
         .clk(~cpu_clk),
         .rst(rst),
         .cache_write(d_cache_write),
         .cache_read(d_cache_read),
-        .write_back(resp_cache_stall), // interact with memory
+        // .write_back(resp_cache_stall),
+        .write_back(d_cache_write_back), // interact with memory
         .read_allocate(d_cache_read_allocate), // interact with memory
         .address(Addr_Out[12:2]),
         .data_in(Data_Out),
@@ -122,9 +126,12 @@ module dummy_core(
         .read_allocate(d_cache_read_allocate)
     );
 
+ `define MEM_EXTEND_USE
+
+`ifdef MEM_EXTEND_USE
     logic [31:0]cache_req_addr, cache_req_data;
     logic cache_req_valid, mem_resp_valid;
-    logic resp_cache_valid, resp_cache_stall, read_check, dirty_in_buffer;
+    logic resp_cache_valid, read_check, dirty_in_buffer;
     logic [3:0][31:0]req_mem_addr, req_mem_data;
     logic [3:0]req_mem_valid;
     logic req_mem_we;
@@ -147,19 +154,19 @@ module dummy_core(
         .req_mem_data_write(req_mem_data),
         .req_mem_valid_write(req_mem_valid),
         .req_mem_we(req_mem_we),
-        .mem_resp_valid(mem_resp_valid),
+        .mem_resp_valid(mem_clk),
         .req_mem_addr_read(),
         .req_mem_valid_read()
     );
 
-`define MEM_EXTEND_USE
+
 
 
     logic [31:0]ram_extend_read_address;
     logic [3:0]read_address_valid;
     logic [3:0]ram_extend_we;
     // read and write address translation
-    assign ram_extend_read_address = {23'b0, ram_address[10:2]};
+    assign ram_extend_read_address = {21'b0, ram_address[10:0]};  // changed here
     always_comb begin
         if(ram_read) begin
             case (ram_address[1:0])
@@ -196,6 +203,7 @@ module dummy_core(
         .data_in(req_mem_data),
         .data_out(ram_data_out)
     );
+`endif
 
 
 `ifdef I_CACHE_USE

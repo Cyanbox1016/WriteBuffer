@@ -46,35 +46,49 @@ assign buffer_is_fully_occupied = (queue_head == queue_tail + 1 || (queue_head =
 wire buffer_is_empty;
 assign buffer_is_empty = (queue_head == queue_tail) ? 1 : 0;
 
-int i;
+integer k;
 
 always @ * begin
     if (rst == 1) select_position <= 32'b0;
     else begin
-        for (i = queue_head; i != queue_tail; i = (i + 1) % BUFFERSIZE) begin
-            if (col_index != 0 && addr[0][i][31:2] == cache_req_addr[31:2] && valid[0][i]) begin
-                select_position <= i;
+        for (k = 0; k < BUFFERSIZE; k++) begin
+            if (col_index != 0 && addr[0][k][31:2] == cache_req_addr[31:2] && valid[0][k]) begin
+                select_position <= k;
                 break;
             end
-            else if (col_index != 1 && addr[1][i][31:2] == cache_req_addr[31:2] && valid[1][i]) begin
-                select_position <= i;
+            else if (col_index != 1 && addr[1][k][31:2] == cache_req_addr[31:2] && valid[1][k]) begin
+                select_position <= k;
                 break;
             end
-            else if (col_index != 2 && addr[2][i][31:2] == cache_req_addr[31:2] && valid[2][i]) begin
-                select_position <= i;
+            else if (col_index != 2 && addr[2][k][31:2] == cache_req_addr[31:2] && valid[2][k]) begin
+                select_position <= k;
                 break;
             end
-            else if (col_index != 3 && addr[3][i][31:2] == cache_req_addr[31:2] && valid[3][i]) begin
-                select_position <= i;
+            else if (col_index != 3 && addr[3][k][31:2] == cache_req_addr[31:2] && valid[3][k]) begin
+                select_position <= k;
                 break;
             end
-            else if (i == queue_tail - 1 || (queue_tail == 0 && i == BUFFERSIZE - 1)) begin
+            else if (k == queue_tail - 1 || (queue_tail == 0 && k == BUFFERSIZE - 1)) begin
                 select_position <= queue_tail;
                 break;
             end
         end
     end
 end
+
+
+// sample mem_clk with cpu_clk
+logic [2:0]dequeue_ready;
+always_ff @ (posedge clk or posedge rst) begin
+    if(rst) begin
+        dequeue_ready <= 3'b0;
+    end
+    else begin
+        dequeue_ready <= {dequeue_ready[1:0], mem_resp_valid};
+    end
+end
+logic posedge_dequeue_ready;
+assign posedge_dequeue_ready = ~dequeue_ready[2] & dequeue_ready[1];
 
 /* read into buffer */
 always @ (posedge clk or posedge rst) begin
@@ -86,15 +100,21 @@ always @ (posedge clk or posedge rst) begin
                 valid[i][j] <= 1'b0;
             end
         end
-        queue_head <= 32'b0;
         queue_tail <= 32'b0;
     end
     else if (cache_req_valid && !read_check) begin
         if (!buffer_is_fully_occupied || (buffer_is_fully_occupied && select_position != queue_tail)) begin
             valid[col_index][select_position] <= 1'b1;
             buffer[col_index][select_position] <= cache_req_data;
+            addr[col_index][select_position] <= cache_req_addr;
             if (!buffer_is_fully_occupied && select_position == queue_tail) queue_tail++;
         end
+    end
+    else if (!buffer_is_empty && posedge_dequeue_ready) begin
+        valid[0][queue_head] = 1'b0;
+        valid[1][queue_head] = 1'b0;
+        valid[2][queue_head] = 1'b0;
+        valid[3][queue_head] = 1'b0;
     end
 end
 
@@ -134,13 +154,13 @@ assign req_mem_addr_read[3][31:0] = cache_req_addr;
 assign req_mem_we = buffer_is_empty == 1 ? 0 : 1;
 
 /* write into memory */
-always @ (posedge mem_resp_valid) begin
-    if (!buffer_is_empty) begin
-        valid[0][queue_head] = 1'b0;
-        valid[1][queue_head] = 1'b0;
-        valid[2][queue_head] = 1'b0;
-        valid[3][queue_head] = 1'b0;
-        queue_head = queue_head + 1;
+// changed
+always @ (posedge mem_resp_valid or posedge rst) begin // mem_clk
+    if(rst) begin
+        queue_head <= 32'b0;
+    end
+    else if (!buffer_is_empty) begin
+        queue_head <= queue_head + 1;
     end
 end
 
@@ -150,7 +170,7 @@ assign dirty_in_buffer = dirty_in_buffer_state;
 always @ * begin
     if (rst == 1) dirty_in_buffer_state <= 1'b0;
     else if (read_check) begin
-        for (int k = queue_head; k != queue_tail; k = (k + 1) % BUFFERSIZE) begin
+        for (k = 0; k < BUFFERSIZE; k++) begin
             if (addr[col_index][k][31:0] == cache_req_addr[31:0] && valid[col_index][k] == 1) begin
                 dirty_in_buffer_state <= 1'b1;
                 break;

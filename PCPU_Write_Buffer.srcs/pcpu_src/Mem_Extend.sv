@@ -31,7 +31,7 @@ module Mem_Extend(
     output logic [31:0]data_out
     );
     
-    logic [31:0]ram_data_out[0:3];
+    logic [3:0][31:0]ram_data_out;
     dual_port_ram ram_unit_0 (
         .clka(mem_clk),
         .wea(we[0]),
@@ -39,7 +39,7 @@ module Mem_Extend(
         .dina(data_in[0]),
 
         .clkb(mem_clk),
-        .addrb(read_address[12:2]),
+        .addrb(read_address[10:0]),
         .doutb(ram_data_out[0])
     );
 
@@ -50,7 +50,7 @@ module Mem_Extend(
         .dina(data_in[1]),
 
         .clkb(mem_clk),
-        .addrb(read_address[12:2]),
+        .addrb(read_address[10:0]),
         .doutb(ram_data_out[1])
     );
 
@@ -61,7 +61,7 @@ module Mem_Extend(
         .dina(data_in[2]),
 
         .clkb(mem_clk),
-        .addrb(read_address[12:2]),
+        .addrb(read_address[10:0]),
         .doutb(ram_data_out[2])
     );
 
@@ -72,7 +72,7 @@ module Mem_Extend(
         .dina(data_in[3]),
 
         .clkb(mem_clk),
-        .addrb(read_address[12:2]),
+        .addrb(read_address[10:0]),
         .doutb(ram_data_out[3])
     );
     

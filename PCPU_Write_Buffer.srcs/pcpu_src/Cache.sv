@@ -153,6 +153,7 @@ module Cache(
         stall = 1'b1;
         mem_write = 1'b0;
         mem_read = 1'b0;
+        data_out = 32'hx;
         case (state)
             S_IDLE: begin data_out = data[index]; stall = 1'b0; end
             S_BACK: begin 

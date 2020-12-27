@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="27244000fs"></ZoomStartTime>
-      <ZoomEndTime time="28300001fs"></ZoomEndTime>
-      <Cursor1Time time="27800000fs"></Cursor1Time>
+      <ZoomStartTime time="17840000fs"></ZoomStartTime>
+      <ZoomEndTime time="39380001fs"></ZoomEndTime>
+      <Cursor1Time time="25840000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="241"></NameColumnWidth>
+      <NameColumnWidth column_width="220"></NameColumnWidth>
       <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="19" />
    <wvobject fp_name="/dummy_core_sim/aresetn" type="logic">
       <obj_property name="ElementShortName">aresetn</obj_property>
       <obj_property name="ObjectShortName">aresetn</obj_property>
@@ -37,13 +37,19 @@
       <obj_property name="ElementShortName">debug_reg_addr[4:0]</obj_property>
       <obj_property name="ObjectShortName">debug_reg_addr[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/dummy_core_sim/PC_Out" type="array">
-      <obj_property name="ElementShortName">PC_Out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_Out[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/dummy_core_sim/Debug_Reg_Data" type="array">
       <obj_property name="ElementShortName">Debug_Reg_Data[31:0]</obj_property>
       <obj_property name="ObjectShortName">Debug_Reg_Data[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dummy_core_sim/uut/cpu/d_cache_stall" type="logic">
+      <obj_property name="ElementShortName">d_cache_stall</obj_property>
+      <obj_property name="ObjectShortName">d_cache_stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dummy_core_sim/PC_Out" type="array">
+      <obj_property name="ElementShortName">PC_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_Out[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/Addr_Out" type="array">
       <obj_property name="ElementShortName">Addr_Out[31:0]</obj_property>
@@ -53,21 +59,9 @@
       <obj_property name="ElementShortName">Inst[31:0]</obj_property>
       <obj_property name="ObjectShortName">Inst[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/mem_ready" type="logic">
-      <obj_property name="ElementShortName">mem_ready</obj_property>
-      <obj_property name="ObjectShortName">mem_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/write_back" type="logic">
-      <obj_property name="ElementShortName">write_back</obj_property>
-      <obj_property name="ObjectShortName">write_back</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/read_allocate" type="logic">
-      <obj_property name="ElementShortName">read_allocate</obj_property>
-      <obj_property name="ObjectShortName">read_allocate</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/mem_state" type="logic">
-      <obj_property name="ElementShortName">mem_state</obj_property>
-      <obj_property name="ObjectShortName">mem_state</obj_property>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/mem_ready" type="array">
+      <obj_property name="ElementShortName">mem_ready[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_ready[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/uut/mem_clk" type="logic">
       <obj_property name="ElementShortName">mem_clk</obj_property>
@@ -89,8 +83,21 @@
       <obj_property name="ElementShortName">state[3:0]</obj_property>
       <obj_property name="ObjectShortName">state[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/dummy_core_sim/uut/i_cache_stall" type="logic">
-      <obj_property name="ElementShortName">i_cache_stall</obj_property>
-      <obj_property name="ObjectShortName">i_cache_stall</obj_property>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/write_back" type="logic">
+      <obj_property name="ElementShortName">write_back</obj_property>
+      <obj_property name="ObjectShortName">write_back</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_ctrl/read_allocate" type="logic">
+      <obj_property name="ElementShortName">read_allocate</obj_property>
+      <obj_property name="ObjectShortName">read_allocate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_data_out" type="array">
+      <obj_property name="ElementShortName">ram_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_data_out[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dummy_core_sim/uut/ram_address" type="array">
+      <obj_property name="ElementShortName">ram_address[10:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_address[10:0]</obj_property>
    </wvobject>
 </wave_config>
