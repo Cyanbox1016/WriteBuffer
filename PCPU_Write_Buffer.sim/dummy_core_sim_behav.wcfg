@@ -12,13 +12,29 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
+<<<<<<< HEAD
       <ZoomStartTime time="107973333fs"></ZoomStartTime>
       <ZoomEndTime time="162173334fs"></ZoomEndTime>
       <Cursor1Time time="153140000fs"></Cursor1Time>
+=======
+<<<<<<< HEAD
+      <ZoomStartTime time="17840000fs"></ZoomStartTime>
+      <ZoomEndTime time="39380001fs"></ZoomEndTime>
+      <Cursor1Time time="25840000fs"></Cursor1Time>
+>>>>>>> 3ad2b3eb97e315417308a7da488b2ae747b3eded
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="213"></NameColumnWidth>
       <ValueColumnWidth column_width="102"></ValueColumnWidth>
+=======
+      <ZoomStartTime time="42382590fs"></ZoomStartTime>
+      <ZoomEndTime time="42406471fs"></ZoomEndTime>
+      <Cursor1Time time="42414590fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="241"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+>>>>>>> f92ab6553c9a99b99737764808e8fd3b4327fa28
    </column_width_setting>
    <WVObjectSize size="19" />
    <wvobject fp_name="/dummy_core_sim/aresetn" type="logic">
@@ -36,10 +52,12 @@
    <wvobject fp_name="/dummy_core_sim/debug_reg_addr" type="array">
       <obj_property name="ElementShortName">debug_reg_addr[4:0]</obj_property>
       <obj_property name="ObjectShortName">debug_reg_addr[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/Debug_Reg_Data" type="array">
       <obj_property name="ElementShortName">Debug_Reg_Data[31:0]</obj_property>
       <obj_property name="ObjectShortName">Debug_Reg_Data[31:0]</obj_property>
+<<<<<<< HEAD
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
@@ -50,6 +68,9 @@
    <wvobject fp_name="/dummy_core_sim/PC_Out" type="array">
       <obj_property name="ElementShortName">PC_Out[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC_Out[31:0]</obj_property>
+=======
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+>>>>>>> f92ab6553c9a99b99737764808e8fd3b4327fa28
    </wvobject>
    <wvobject fp_name="/dummy_core_sim/Addr_Out" type="array">
       <obj_property name="ElementShortName">Addr_Out[31:0]</obj_property>

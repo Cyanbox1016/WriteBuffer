@@ -39,6 +39,15 @@ logic [31:0] select_position;
 int queue_head;
 int queue_tail;
 
+/*
+    write to memory immediately
+*/
+
+wire write_now;
+assign write_now = read_check & dirty_in_buffer;
+integer write_now_pos;
+wire[31:0] write_pos;
+assign write_pos[31:0] = (write_now == 1) ? write_now_pos : queue_head;
 
 wire buffer_is_fully_occupied;  
 assign buffer_is_fully_occupied = (queue_head == queue_tail + 1 || (queue_head == 0 && queue_tail == BUFFERSIZE - 1)) ? 1 : 0;
@@ -75,7 +84,6 @@ always @ * begin
         end
     end
 end
-
 
 // sample mem_clk with cpu_clk
 logic [2:0]dequeue_ready;
@@ -128,20 +136,20 @@ assign req_mem_data[3:0][31:0] = buffer[3:0][queue_head][31:0];
 assign req_mem_valid[3:0] = valid[3:0][queue_head];
 */
 
-assign req_mem_addr_write[0][31:0] = addr[0][queue_head][31:0];
-assign req_mem_addr_write[1][31:0] = addr[1][queue_head][31:0];
-assign req_mem_addr_write[2][31:0] = addr[2][queue_head][31:0];
-assign req_mem_addr_write[3][31:0] = addr[3][queue_head][31:0];
+assign req_mem_addr_write[0][31:0] = addr[0][write_pos][31:0];
+assign req_mem_addr_write[1][31:0] = addr[1][write_pos][31:0];
+assign req_mem_addr_write[2][31:0] = addr[2][write_pos][31:0];
+assign req_mem_addr_write[3][31:0] = addr[3][write_pos][31:0];
 
-assign req_mem_data_write[0][31:0] = buffer[0][queue_head][31:0];
-assign req_mem_data_write[1][31:0] = buffer[1][queue_head][31:0];
-assign req_mem_data_write[2][31:0] = buffer[2][queue_head][31:0];
-assign req_mem_data_write[3][31:0] = buffer[3][queue_head][31:0];
+assign req_mem_data_write[0][31:0] = buffer[0][write_pos][31:0];
+assign req_mem_data_write[1][31:0] = buffer[1][write_pos][31:0];
+assign req_mem_data_write[2][31:0] = buffer[2][write_pos][31:0];
+assign req_mem_data_write[3][31:0] = buffer[3][write_pos][31:0];
 
-assign req_mem_valid_write[0] = valid[0][queue_head];
-assign req_mem_valid_write[1] = valid[1][queue_head];
-assign req_mem_valid_write[2] = valid[2][queue_head];
-assign req_mem_valid_write[3] = valid[3][queue_head];
+assign req_mem_valid_write[0] = valid[0][write_pos];
+assign req_mem_valid_write[1] = valid[1][write_pos];
+assign req_mem_valid_write[2] = valid[2][write_pos];
+assign req_mem_valid_write[3] = valid[3][write_pos];
 
 assign req_mem_valid_read[0] = (read_check == 1 && col_index == 2'd0) ? 1 : 0;
 assign req_mem_valid_read[1] = (read_check == 1 && col_index == 2'd1) ? 1 : 0;
@@ -161,7 +169,7 @@ always @ (posedge mem_resp_valid or posedge rst) begin // mem_clk
     if(rst) begin
         queue_head <= 32'b0;
     end
-    else if (!buffer_is_empty) begin
+    else if (!buffer_is_empty && !write_now) begin
         queue_head <= queue_head + 1;
     end
 end
@@ -169,12 +177,16 @@ end
 logic dirty_in_buffer_state;
 assign dirty_in_buffer = dirty_in_buffer_state;
 
-always @ * begin
-    if (rst == 1) dirty_in_buffer_state <= 1'b0;
+always_comb begin
+    if (rst == 1) begin
+        dirty_in_buffer_state <= 1'b0;
+        write_now_pos <= 32'b0;
+    end 
     else if (read_check) begin
         for (k = 0; k < BUFFERSIZE; k++) begin
             if (addr[col_index][k][31:0] == cache_req_addr[31:0] && valid[col_index][k] == 1) begin
                 dirty_in_buffer_state <= 1'b1;
+                write_now_pos <= k;
                 break;
             end 
             else if (k == queue_tail - 1 || (queue_tail == 0 && k == BUFFERSIZE - 1)) begin
